@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 sm:py-24">
+    <section id="contact" className="py-16 sm:py-24 bg-neutral-950">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2
-          className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900"
+          className="text-3xl sm:text-4xl font-semibold tracking-tight text-white"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -15,7 +15,7 @@ export default function Contact() {
           Let’s build something great
         </motion.h2>
         <motion.p
-          className="mt-3 text-slate-600"
+          className="mt-3 text-neutral-300"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -34,7 +34,7 @@ export default function Contact() {
         >
           <a
             href="mailto:hello@example.com?subject=Project%20Inquiry"
-            className="inline-flex items-center gap-2 rounded-md bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow hover:-translate-y-0.5 hover:bg-slate-800 transition-all"
+            className="inline-flex items-center gap-2 rounded-md bg-red-600 text-white px-5 py-3 text-sm font-medium shadow hover:-translate-y-0.5 hover:bg-red-500 transition-all"
           >
             <Mail className="h-4 w-4" />
             hello@example.com
@@ -43,7 +43,7 @@ export default function Contact() {
             href="https://github.com/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white text-slate-900 px-5 py-3 text-sm font-medium hover:-translate-y-0.5 hover:bg-slate-50 transition-all"
+            className="inline-flex items-center gap-2 rounded-md border border-neutral-700 bg-neutral-900 text-white px-5 py-3 text-sm font-medium hover:-translate-y-0.5 hover:bg-neutral-800 transition-all"
           >
             <Github className="h-4 w-4" /> GitHub
           </a>
@@ -51,13 +51,13 @@ export default function Contact() {
             href="https://www.linkedin.com/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white text-slate-900 px-5 py-3 text-sm font-medium hover:-translate-y-0.5 hover:bg-slate-50 transition-all"
+            className="inline-flex items-center gap-2 rounded-md border border-neutral-700 bg-neutral-900 text-white px-5 py-3 text-sm font-medium hover:-translate-y-0.5 hover:bg-neutral-800 transition-all"
           >
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
         </motion.div>
 
-        <p className="mt-10 text-xs text-slate-500">
+        <p className="mt-10 text-xs text-neutral-500">
           © {new Date().getFullYear()} Your Name. All rights reserved.
         </p>
       </div>
