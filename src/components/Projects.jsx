@@ -1,4 +1,5 @@
 import { Github, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -40,11 +41,27 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          className="mt-10 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.12 },
+            },
+          }}
+        >
           {projects.map((p) => (
-            <article
+            <motion.article
               key={p.title}
               className="group rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+              }}
+              whileHover={{ y: -4 }}
             >
               <div className="h-36 bg-gradient-to-br from-sky-100 via-white to-slate-100" />
               <div className="p-5">
@@ -63,21 +80,21 @@ export default function Projects() {
                 <div className="mt-5 flex items-center gap-3">
                   <a
                     href={p.demo}
-                    className="inline-flex items-center gap-2 rounded-md bg-slate-900 text-white px-3 py-2 text-xs font-medium hover:bg-slate-800"
+                    className="inline-flex items-center gap-2 rounded-md bg-slate-900 text-white px-3 py-2 text-xs font-medium hover:bg-slate-800 transition-colors"
                   >
                     <ExternalLink className="h-4 w-4" /> Live demo
                   </a>
                   <a
                     href={p.source}
-                    className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white text-slate-900 px-3 py-2 text-xs font-medium hover:bg-slate-50"
+                    className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white text-slate-900 px-3 py-2 text-xs font-medium hover:bg-slate-50 transition-colors"
                   >
                     <Github className="h-4 w-4" /> Source
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
