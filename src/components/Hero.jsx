@@ -1,5 +1,5 @@
 import Spline from '@splinetool/react-spline';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, Code, Gauge, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const fadeUp = {
@@ -128,6 +128,54 @@ export default function Hero() {
             <div className="h-[420px] sm:h-[520px] lg:h-[620px]" />
           </motion.div>
         </div>
+
+        {/* More information section on landing */}
+        <motion.div
+          className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          {[{
+            icon: <Code className=\"h-5 w-5 text-red-400\" />, title: 'Systems & Tooling',
+            desc: 'Building CLIs, libraries, and services with precise control over memory and I/O.'
+          }, {
+            icon: <Gauge className=\"h-5 w-5 text-red-400\" />, title: 'Performance-first',
+            desc: 'Profiling-driven improvements, concurrency, and cache-aware data structures.'
+          }, {
+            icon: <Shield className=\"h-5 w-5 text-red-400\" />, title: 'Reliability',
+            desc: 'Testing, fuzzing, and defensive coding for production-grade stability.'
+          }].map((item) => (
+            <div key={item.title} className="rounded-xl border border-neutral-800 bg-neutral-900/70 p-5">
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-md bg-red-600/10 border border-red-500/30">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-white font-medium">{item.title}</h3>
+                  <p className="mt-1 text-sm text-neutral-300 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 p-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-300">
+            {['GCC', 'Clang', 'CMake', 'Make', 'gdb', 'Valgrind', 'Linux', 'POSIX', 'SSE/AVX', 'Sockets'].map((t) => (
+              <span key={t} className="inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800 px-2.5 py-1">
+                {t}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
