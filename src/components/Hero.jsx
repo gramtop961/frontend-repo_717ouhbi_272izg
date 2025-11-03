@@ -137,16 +137,23 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          {[{
-            icon: <Code className=\"h-5 w-5 text-red-400\" />, title: 'Systems & Tooling',
-            desc: 'Building CLIs, libraries, and services with precise control over memory and I/O.'
-          }, {
-            icon: <Gauge className=\"h-5 w-5 text-red-400\" />, title: 'Performance-first',
-            desc: 'Profiling-driven improvements, concurrency, and cache-aware data structures.'
-          }, {
-            icon: <Shield className=\"h-5 w-5 text-red-400\" />, title: 'Reliability',
-            desc: 'Testing, fuzzing, and defensive coding for production-grade stability.'
-          }].map((item) => (
+          {[
+            {
+              icon: <Code className="h-5 w-5 text-red-400" />,
+              title: 'Systems & Tooling',
+              desc: 'Building CLIs, libraries, and services with precise control over memory and I/O.',
+            },
+            {
+              icon: <Gauge className="h-5 w-5 text-red-400" />,
+              title: 'Performance-first',
+              desc: 'Profiling-driven improvements, concurrency, and cache-aware data structures.',
+            },
+            {
+              icon: <Shield className="h-5 w-5 text-red-400" />,
+              title: 'Reliability',
+              desc: 'Testing, fuzzing, and defensive coding for production-grade stability.',
+            },
+          ].map((item) => (
             <div key={item.title} className="rounded-xl border border-neutral-800 bg-neutral-900/70 p-5">
               <div className="flex items-start gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-md bg-red-600/10 border border-red-500/30">
